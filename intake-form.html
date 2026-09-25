@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intake Form, Soulful Steps Entertainment</title>
+<meta name="description" content="Tell us about your event and let's plan your Soulful Steps performance — first dance choreography, group party lessons, or a Bollywood Latin Fusion show.">
+<link rel="canonical" href="https://soulfulsteps.ca/intake-form.html">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Soulful Steps Entertainment">
+<meta property="og:url" content="https://soulfulsteps.ca/intake-form.html">
+<meta property="og:title" content="Intake Form, Soulful Steps Entertainment">
+<meta property="og:description" content="Tell us about your event and let's plan your Soulful Steps performance — first dance choreography, group party lessons, or a Bollywood Latin Fusion show.">
+<meta property="og:image" content="img.Hero saturated.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap">
+<style>
+  /* Stand-in for Reckless (paid, no CDN license available) — swap for @font-face once files are supplied */
+  body { font-family: 'General Sans', sans-serif; color: #341A27; }
+  .font-display { font-family: 'Fraunces', serif; }
+  .text-eyebrow { color: #8A2E5C; }
+</style>
+</head>
+<body class="bg-[#FFFDF7]">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-[#341A27] focus:px-4 focus:py-2 focus:rounded-lg focus:border focus:border-neutral-300">Skip to content</a>
+
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-neutral-200">
+    <div class="relative max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
+      <a href="index.html" class="font-display leading-tight">
+        <span class="block text-base md:text-xl font-semibold tracking-tight text-eyebrow">Soulful Steps</span>
+        <span class="block text-xs md:text-base font-thin tracking-tight text-eyebrow">Entertainment</span>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <a href="https://www.instagram.com/soulfulsteps.toronto/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-neutral-700 hover:text-neutral-950">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+        <a href="index.html" class="hidden md:inline-flex items-center px-4 py-2.5 text-sm font-medium text-neutral-700 hover:text-neutral-950 underline transition">Back to Home</a>
+
+        <button id="menu-toggle" aria-label="Open menu" aria-expanded="false" class="p-2 -mr-2 text-neutral-900">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+
+      <nav id="menu-panel" class="hidden flex-col absolute right-6 md:right-10 top-[calc(100%+8px)] w-48 rounded-xl border border-neutral-200 bg-white shadow-lg overflow-hidden">
+        <a href="index.html" class="px-5 py-3 text-sm font-medium text-neutral-700 hover:text-neutral-950 hover:bg-neutral-50">Home</a>
+        <a href="about.html" class="px-5 py-3 text-sm font-medium text-neutral-700 hover:text-neutral-950 hover:bg-neutral-50 border-t border-neutral-100">About Us</a>
+        <a href="intake-form.html" class="px-5 py-3 text-sm font-medium text-neutral-950 bg-neutral-50 border-t border-neutral-100">Intake Form</a>
+      </nav>
+    </div>
+  </header>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuPanel = document.getElementById('menu-panel');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = !menuPanel.classList.contains('hidden');
+      menuPanel.classList.toggle('hidden');
+      menuPanel.classList.toggle('flex');
+      menuToggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+  </script>
+
+  <!-- Intro + Form -->
+  <div id="intake-wrapper" tabindex="-1">
+
+    <section class="max-w-3xl mx-auto px-6 md:px-10 pt-16 pb-10 text-center">
+      <p class="uppercase tracking-[0.25em] text-xs font-semibold text-eyebrow mb-4">Let's Plan Your Event</p>
+      <h1 class="font-display text-4xl sm:text-5xl font-semibold leading-[1.08] mb-6">Tell Us About Your Event</h1>
+      <p class="text-neutral-600 max-w-xl mx-auto">
+        Fill out the details below and our team will follow up by phone to discuss customization.
+      </p>
+    </section>
+
+    <section id="form" class="max-w-3xl mx-auto px-6 md:px-10 pb-24">
+    <form id="intake-form" class="bg-white border border-neutral-200 rounded-2xl p-8 md:p-10 flex flex-col gap-6">
+
+      <!-- Honeypot: hidden from real visitors, bots tend to fill every field they can see -->
+      <div class="hidden" aria-hidden="true">
+        <label for="website">Leave this field blank</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div>
+        <label for="event-details" class="block text-sm font-semibold mb-2">Tell us about your event, date, venue, guest count.</label>
+        <textarea id="event-details" name="event-details" rows="3" required placeholder="What are you celebrating?"
+          class="w-full rounded-xl border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#8A2E5C]"></textarea>
+      </div>
+
+      <div>
+        <label for="how-heard" class="block text-sm font-semibold mb-2">How did you hear about us?</label>
+        <textarea id="how-heard" name="how-heard" rows="2" placeholder="Social media, referral name, word-of-mouth..."
+          class="w-full rounded-xl border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#8A2E5C]"></textarea>
+      </div>
+
+      <div>
+        <p class="block text-sm font-normal mb-1">(Our prices range from $500 to $2,000+)</p>
+        <p class="block text-sm font-semibold mb-3">What is your budget range?</p>
+        <div class="grid sm:grid-cols-3 gap-3">
+          <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
+            <input type="radio" name="budget" value="500-1000" class="accent-[#8A2E5C]">
+            $500 – $1,000
+          </label>
+          <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
+            <input type="radio" name="budget" value="1000-2000" class="accent-[#8A2E5C]">
+            $1,000 – $2,000
+          </label>
+          <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
+            <input type="radio" name="budget" value="2000+" class="accent-[#8A2E5C]">
+            $2,000+
+          </label>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div>
+          <label for="email" class="block text-sm font-semibold mb-2">Email address</label>
+          <input type="email" id="email" name="email" required placeholder="you@email.com"
+            class="w-full rounded-xl border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#8A2E5C]">
+        </div>
+        <div>
+          <label for="phone" class="block text-sm font-semibold mb-2">Phone number</label>
+          <input type="tel" id="phone" name="phone" required placeholder="(555) 555-5555"
+            class="w-full rounded-xl border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#8A2E5C]">
+        </div>
+      </div>
+
+      <div>
+        <p class="block text-sm font-semibold mb-3">Preferred contact time</p>
+        <div class="grid sm:grid-cols-3 gap-3">
+          <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
+            <input type="radio" name="contact-time" value="morning" class="accent-[#8A2E5C]">
+            Morning (9–12)
+          </label>
+          <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer whitespace-nowrap has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
+            <input type="radio" name="contact-time" value="afternoon" class="accent-[#8A2E5C]">
+            Afternoon (12–5)
+          </label>
+          <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
+            <input type="radio" name="contact-time" value="evening" class="accent-[#8A2E5C]">
+            Evening (5–8)
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" id="intake-submit" class="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#8A2E5C] text-white font-medium hover:bg-[#742649] transition mt-2 disabled:opacity-60" style="box-shadow:0px 4px 8px 0px rgba(138,46,92,0.2)">
+        Submit Form
+      </button>
+
+      <p id="intake-status" class="hidden text-sm font-medium text-center"></p>
+    </form>
+    </section>
+
+  </div>
+
+  <!-- Thank you (shown after successful submission) -->
+  <section id="intake-thankyou" class="hidden max-w-3xl mx-auto px-6 md:px-10 pt-16 pb-24 text-center">
+    <p class="uppercase tracking-[0.25em] text-xs font-bold text-eyebrow mb-4">Thank You</p>
+    <h1 class="font-display text-4xl sm:text-5xl font-semibold leading-[1.08] mb-6">We have received your form</h1>
+    <p class="text-neutral-600 max-w-xl mx-auto mb-12">
+      Our team will follow up by phone to discuss your needs.
+    </p>
+    <div class="rounded-2xl overflow-hidden border border-neutral-200">
+      <img src="img-Thank you page.jpg" alt="Thank you from Soulful Steps Entertainment" class="w-full h-auto object-cover" loading="lazy">
+    </div>
+  </section>
+
+  <script>
+    // Paste your deployed Google Apps Script Web App URL below.
+    const INTAKE_FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx75IFZJrNvAnxtEOhn2XNQ30oLIL5W2Cuw0qjTPSSmkUw_fFbiAue1LjtHz78mOcyE/exec';
+
+    const intakeWrapper = document.getElementById('intake-wrapper');
+    const intakeThankyou = document.getElementById('intake-thankyou');
+    const intakeForm = document.getElementById('intake-form');
+    const intakeSubmit = document.getElementById('intake-submit');
+    const intakeStatus = document.getElementById('intake-status');
+
+    function showThankYou() {
+      intakeWrapper.classList.add('hidden');
+      intakeThankyou.classList.remove('hidden');
+      intakeThankyou.scrollIntoView({ behavior: 'smooth' });
+      intakeForm.reset();
+    }
+
+    intakeForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Honeypot: real visitors never see or fill this field, bots often do.
+      if (intakeForm.website.value.trim() !== '') {
+        showThankYou();
+        return;
+      }
+
+      if (INTAKE_FORM_ENDPOINT.includes('PASTE_YOUR')) {
+        intakeStatus.textContent = 'Form storage isn’t connected yet, add your Google Sheet endpoint to start collecting submissions.';
+        intakeStatus.className = 'text-sm font-medium text-center text-red-600';
+        intakeStatus.classList.remove('hidden');
+        return;
+      }
+
+      intakeSubmit.disabled = true;
+      intakeSubmit.textContent = 'Submitting...';
+
+      try {
+        await fetch(INTAKE_FORM_ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: new FormData(intakeForm)
+        });
+
+        showThankYou();
+      } catch (err) {
+        intakeStatus.textContent = 'Something went wrong sending your form. Please try again or reach out to us directly.';
+        intakeStatus.className = 'text-sm font-medium text-center text-red-600';
+        intakeStatus.classList.remove('hidden');
+      } finally {
+        intakeSubmit.disabled = false;
+        intakeSubmit.textContent = 'Submit Form';
+      }
+    });
+  </script>
+
+  <footer class="max-w-7xl mx-auto px-6 md:px-10 py-10 text-sm text-neutral-500 flex flex-col sm:flex-row items-center justify-between gap-3">
+    <p class="text-center">© 2026 Soulful Steps Entertainment by SalimehDesign.</p>
+    <div class="grid grid-cols-2 grid-rows-2 grid-flow-col justify-between gap-y-3 w-full sm:w-auto sm:flex sm:gap-6">
+      <a href="index.html" class="hover:text-neutral-900 justify-self-start">Home</a>
+      <a href="about.html" class="hover:text-neutral-900 justify-self-start">About Us</a>
+      <a href="intake-form.html" class="hover:text-neutral-900 justify-self-end">Intake Form</a>
+      <a href="privacy-policy.html" class="hover:text-neutral-900 justify-self-end">Privacy Policy</a>
+    </div>
+  </footer>
+
+</body>
+</html>
