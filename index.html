@@ -39,7 +39,6 @@
     display: flex;
     align-items: center;
     width: max-content;
-    gap: var(--gap);
     animation: trusted-by-scroll 36s linear infinite;
   }
   .trusted-by-marquee:hover .trusted-by-track { animation-play-state: paused; }
@@ -47,6 +46,7 @@
     flex: 0 0 auto;
     height: 64px;
     max-width: calc((100cqw - 2 * var(--gap)) / 3);
+    margin-right: var(--gap);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -203,7 +203,7 @@
 
   <!-- Trusted By -->
   <section class="max-w-7xl mx-auto px-6 md:px-10 pb-12 md:pb-20">
-    <p class="text-center text-[1.5rem] text-eyebrow mb-8 md:mb-12">Trusted by</p>
+    <p class="text-center text-[1.5rem] text-eyebrow mb-8 md:mb-12">Past Clients</p>
     <div class="trusted-by-marquee" style="--gap:3rem;">
       <div class="trusted-by-track">
         <div class="trusted-by-item"><img src="Client Logos/PanAm Games.svg" alt="Panamerican Food &amp; Music Festival" loading="lazy"></div>
