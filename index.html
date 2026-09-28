@@ -28,6 +28,46 @@
   .font-display { font-family: 'Fraunces', serif; }
   .text-eyebrow { color: #8A2E5C; }
   .dance-accordion summary::-webkit-details-marker { display: none; }
+
+  .trusted-by-marquee {
+    container-type: inline-size;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+  .trusted-by-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: var(--gap);
+    animation: trusted-by-scroll 36s linear infinite;
+  }
+  .trusted-by-marquee:hover .trusted-by-track { animation-play-state: paused; }
+  .trusted-by-item {
+    flex: 0 0 auto;
+    height: 64px;
+    max-width: calc((100cqw - 2 * var(--gap)) / 3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .trusted-by-item img {
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+  .trusted-by-item img.trusted-by-logo-small { height: 70%; }
+  @media (min-width: 768px) {
+    .trusted-by-item { height: 80px; max-width: calc((100cqw - 4 * var(--gap)) / 5); }
+  }
+  @keyframes trusted-by-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .trusted-by-track { animation: none; }
+  }
   .closing-bg { background-position: center 20%; }
   @media (min-width: 768px) {
     .closing-bg { background-position: center 5%; }
@@ -157,6 +197,36 @@
         </summary>
         <p class="pb-5 md:pb-6 pl-[calc(1.25rem+1.5rem)] md:pl-[calc(1.5rem+1.5rem)] pr-8 text-neutral-600 max-w-md">Rooted in southern Spain, flamenco is passion you can hear: sharp hand claps, and dramatic lines. It adds intensity and elegance to our storytelling.</p>
       </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted By -->
+  <section class="max-w-7xl mx-auto px-6 md:px-10 pb-12 md:pb-20">
+    <h2 class="font-display text-3xl md:text-4xl font-semibold text-center text-[#341A27] mb-8 md:mb-12">Trusted By</h2>
+    <div class="trusted-by-marquee" style="--gap:3rem;">
+      <div class="trusted-by-track">
+        <div class="trusted-by-item"><img src="Client Logos/PanAm Games.svg" alt="Panamerican Food &amp; Music Festival" loading="lazy"></div>
+        <div class="trusted-by-item"><img src="Client Logos/Boston Salsa festival.svg" alt="Boston Salsa Festival" loading="lazy"></div>
+        <div class="trusted-by-item"><img src="Client Logos/KPMG.svg" alt="KPMG" loading="lazy" class="trusted-by-logo-small"></div>
+        <div class="trusted-by-item"><img src="Client Logos/Montreal Slsa convention.png" alt="Montreal Salsa Convention" loading="lazy"></div>
+        <div class="trusted-by-item"><img src="Client Logos/Quaker Oats.svg" alt="Quaker Oats" loading="lazy"></div>
+        <div class="trusted-by-item"><img src="Client Logos/RBC.svg" alt="RBC" loading="lazy" class="trusted-by-logo-small"></div>
+        <div class="trusted-by-item"><img src="Client Logos/Salsa on St.Clair.svg" alt="Salsa on St. Clair" loading="lazy"></div>
+        <div class="trusted-by-item"><img src="Client Logos/SanFrancisco Salsa Festival.svg" alt="San Francisco Salsa Festival" loading="lazy"></div>
+        <div class="trusted-by-item"><img src="Client Logos/TDbank.svg" alt="TD Bank" loading="lazy" class="trusted-by-logo-small"></div>
+        <div class="trusted-by-item"><img src="Client Logos/Worldwide marriage Encounter.svg" alt="Worldwide Marriage Encounter" loading="lazy"></div>
+        <!-- duplicate set for seamless loop -->
+        <div class="trusted-by-item" aria-hidden="true"><img src="Client Logos/PanAm Games.svg" alt="" loading="lazy"></div>
+        <div class="trusted-by-item" aria-hidden="true"><img src="Client Logos/Boston Salsa festival.svg" alt="" loading="lazy"></div>
+        <div class="trusted-by-item" aria-hidden="true"><img src="Client Logos/KPMG.svg" alt="" loading="lazy" class="trusted-by-logo-small"></div>
+        <div class="trusted-by-item" aria-hidden="true"><img src="Client Logos/Montreal Slsa convention.png" alt="" loading="lazy"></div>
+        <div class="trusted-by-item" aria-hidden="true"><img src="Client Logos/Quaker Oats.svg" alt="" loading="lazy"></div>
+        <div class="trusted-by-item" aria-hidden="true"><img src="Client Logos/RBC.svg" alt="" loading="lazy" class="trusted-by-logo-small"></div>
+        <div class="trusted-by-item" aria-hidden="true"><img src="Client Logos/Salsa on St.Clair.svg" alt="" loading="lazy"></div>
+        <div class="trusted-by-item" aria-hidden="true"><img src="Client Logos/SanFrancisco Salsa Festival.svg" alt="" loading="lazy"></div>
+        <div class="trusted-by-item" aria-hidden="true"><img src="Client Logos/TDbank.svg" alt="" loading="lazy" class="trusted-by-logo-small"></div>
+        <div class="trusted-by-item" aria-hidden="true"><img src="Client Logos/Worldwide marriage Encounter.svg" alt="" loading="lazy"></div>
       </div>
     </div>
   </section>
