@@ -27,6 +27,7 @@
   body { font-family: 'General Sans', sans-serif; color: #341A27; }
   .font-display { font-family: 'Fraunces', serif; }
   .text-eyebrow { color: #8A2E5C; }
+  .dance-accordion summary::-webkit-details-marker { display: none; }
   .closing-bg { background-position: center 20%; }
   @media (min-width: 768px) {
     .closing-bg { background-position: center 5%; }
@@ -115,28 +116,48 @@
     </div>
     <div>
       <p class="text-lg text-neutral-600 mb-5">The styles we dance:</p>
-      <ol class="border-b border-neutral-200">
-      <li class="flex items-baseline gap-5 md:gap-6 py-4 md:py-5 border-t border-neutral-200">
-        <span class="font-mono text-sm text-eyebrow">01</span>
-        <span class="font-display text-3xl md:text-4xl font-medium tracking-tight text-neutral-900">Bollywood fusion</span>
-      </li>
-      <li class="flex items-baseline gap-5 md:gap-6 py-4 md:py-5 border-t border-neutral-200">
-        <span class="font-mono text-sm text-eyebrow">02</span>
-        <span class="font-display text-3xl md:text-4xl font-medium tracking-tight text-neutral-900">Salsa</span>
-      </li>
-      <li class="flex items-baseline gap-5 md:gap-6 py-4 md:py-5 border-t border-neutral-200">
-        <span class="font-mono text-sm text-eyebrow">03</span>
-        <span class="font-display text-3xl md:text-4xl font-medium tracking-tight text-neutral-900">Bachata</span>
-      </li>
-      <li class="flex items-baseline gap-5 md:gap-6 py-4 md:py-5 border-t border-neutral-200">
-        <span class="font-mono text-sm text-eyebrow">04</span>
-        <span class="font-display text-3xl md:text-4xl font-medium tracking-tight text-neutral-900">Cha-cha</span>
-      </li>
-      <li class="flex items-baseline gap-5 md:gap-6 py-4 md:py-5 border-t border-neutral-200">
-        <span class="font-mono text-sm text-eyebrow">05</span>
-        <span class="font-display text-3xl md:text-4xl font-medium tracking-tight text-neutral-900">Flamenco</span>
-      </li>
-      </ol>
+      <div class="border-b border-neutral-200">
+      <details class="dance-accordion group border-t border-neutral-200">
+        <summary class="flex items-baseline gap-5 md:gap-6 py-4 md:py-5 list-none cursor-pointer select-none">
+          <span class="font-mono text-sm text-eyebrow">01</span>
+          <span class="font-display text-3xl md:text-4xl font-medium tracking-tight text-neutral-900 flex-1">Bollywood fusion</span>
+          <span class="shrink-0 text-eyebrow text-xl transition-transform duration-300 group-open:rotate-45">+</span>
+        </summary>
+        <p class="pb-5 md:pb-6 pl-[calc(1.25rem+1.5rem)] md:pl-[calc(1.5rem+1.5rem)] pr-8 text-neutral-600 max-w-md">Our signature style. We blend the joyful storytelling, expressive hands, and big energy of Bollywood with the rhythm and partnering of Latin dance, creating something that feels both familiar and brand new.</p>
+      </details>
+      <details class="dance-accordion group border-t border-neutral-200">
+        <summary class="flex items-baseline gap-5 md:gap-6 py-4 md:py-5 list-none cursor-pointer select-none">
+          <span class="font-mono text-sm text-eyebrow">02</span>
+          <span class="font-display text-3xl md:text-4xl font-medium tracking-tight text-neutral-900 flex-1">Salsa</span>
+          <span class="shrink-0 text-eyebrow text-xl transition-transform duration-300 group-open:rotate-45">+</span>
+        </summary>
+        <p class="pb-5 md:pb-6 pl-[calc(1.25rem+1.5rem)] md:pl-[calc(1.5rem+1.5rem)] pr-8 text-neutral-600 max-w-md">Born from Cuban rhythms and shaped in the dance halls of New York, salsa is elegant, playful, and full of spins. With graceful partnering it's the one that keeps every eye on the floor.</p>
+      </details>
+      <details class="dance-accordion group border-t border-neutral-200">
+        <summary class="flex items-baseline gap-5 md:gap-6 py-4 md:py-5 list-none cursor-pointer select-none">
+          <span class="font-mono text-sm text-eyebrow">03</span>
+          <span class="font-display text-3xl md:text-4xl font-medium tracking-tight text-neutral-900 flex-1">Bachata</span>
+          <span class="shrink-0 text-eyebrow text-xl transition-transform duration-300 group-open:rotate-45">+</span>
+        </summary>
+        <p class="pb-5 md:pb-6 pl-[calc(1.25rem+1.5rem)] md:pl-[calc(1.5rem+1.5rem)] pr-8 text-neutral-600 max-w-md">From the Dominican Republic, bachata is smooth, romantic, and close. Its gentle sway and connection make it a favourite for first dances and heartfelt moments.</p>
+      </details>
+      <details class="dance-accordion group border-t border-neutral-200">
+        <summary class="flex items-baseline gap-5 md:gap-6 py-4 md:py-5 list-none cursor-pointer select-none">
+          <span class="font-mono text-sm text-eyebrow">04</span>
+          <span class="font-display text-3xl md:text-4xl font-medium tracking-tight text-neutral-900 flex-1">Cha-cha</span>
+          <span class="shrink-0 text-eyebrow text-xl transition-transform duration-300 group-open:rotate-45">+</span>
+        </summary>
+        <p class="pb-5 md:pb-6 pl-[calc(1.25rem+1.5rem)] md:pl-[calc(1.5rem+1.5rem)] pr-8 text-neutral-600 max-w-md">A flirty Cuban classic, named for its signature "cha-cha-cha" triple step. Cheeky, crisp, and full of personality, it brings a spark of fun to any celebration.</p>
+      </details>
+      <details class="dance-accordion group border-t border-neutral-200">
+        <summary class="flex items-baseline gap-5 md:gap-6 py-4 md:py-5 list-none cursor-pointer select-none">
+          <span class="font-mono text-sm text-eyebrow">05</span>
+          <span class="font-display text-3xl md:text-4xl font-medium tracking-tight text-neutral-900 flex-1">Flamenco</span>
+          <span class="shrink-0 text-eyebrow text-xl transition-transform duration-300 group-open:rotate-45">+</span>
+        </summary>
+        <p class="pb-5 md:pb-6 pl-[calc(1.25rem+1.5rem)] md:pl-[calc(1.5rem+1.5rem)] pr-8 text-neutral-600 max-w-md">Rooted in southern Spain, flamenco is passion you can hear: sharp hand claps, and dramatic lines. It adds intensity and elegance to our storytelling.</p>
+      </details>
+      </div>
     </div>
   </section>
 
