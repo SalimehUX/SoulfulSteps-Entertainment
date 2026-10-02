@@ -90,66 +90,115 @@
         <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
       </div>
 
+      <!-- Tracks which page the lead came in from -->
+      <input type="hidden" name="Source" value="Website">
+
       <div>
-        <label for="event-details" class="block text-sm font-semibold mb-2">Tell us about your event, date, venue, guest count.</label>
-        <textarea id="event-details" name="event-details" rows="3" required placeholder="What are you celebrating?"
+        <label for="event-details" class="block text-sm font-semibold mb-2">Tell us about your event, date, venue, guest count</label>
+        <textarea id="event-details" name="event-details" rows="3" required placeholder="e.g. Sangeet on June 12, 2027 at Queens Manor, about 200 guests"
           class="w-full rounded-xl border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#8A2E5C]"></textarea>
       </div>
 
       <div>
-        <label for="how-heard" class="block text-sm font-semibold mb-2">How did you hear about us?</label>
-        <textarea id="how-heard" name="how-heard" rows="2" placeholder="Social media, referral name, word-of-mouth..."
-          class="w-full rounded-xl border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#8A2E5C]"></textarea>
-      </div>
-
-      <div>
-        <p class="block text-sm font-normal mb-1">(Our prices range from $500 to $2,000+)</p>
-        <p class="block text-sm font-semibold mb-3">What is your budget range?</p>
+        <p class="block text-sm font-semibold mb-3">How did you hear about us?</p>
         <div class="grid sm:grid-cols-3 gap-3">
           <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
-            <input type="radio" name="budget" value="500-1000" class="accent-[#8A2E5C]">
-            $500 – $1,000
+            <input type="checkbox" name="how-heard" value="Wedding Expo" class="accent-[#8A2E5C]">
+            Wedding Expo
           </label>
           <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
-            <input type="radio" name="budget" value="1000-2000" class="accent-[#8A2E5C]">
-            $1,000 – $2,000
+            <input type="checkbox" name="how-heard" value="Instagram" class="accent-[#8A2E5C]">
+            Instagram
           </label>
           <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
-            <input type="radio" name="budget" value="2000+" class="accent-[#8A2E5C]">
-            $2,000+
+            <input type="checkbox" name="how-heard" value="Google" class="accent-[#8A2E5C]">
+            Google
+          </label>
+          <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
+            <input type="checkbox" name="how-heard" value="Referral" class="accent-[#8A2E5C]">
+            Referral
+          </label>
+          <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
+            <input type="checkbox" name="how-heard" value="Other" class="accent-[#8A2E5C]">
+            Other
+          </label>
+        </div>
+        <input type="text" id="how-heard-other" name="how-heard-other" placeholder="Type in other"
+          class="w-full mt-3 rounded-xl border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#8A2E5C]">
+      </div>
+
+      <div>
+        <p class="block text-sm font-semibold mb-3">What type of service are you looking for?</p>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
+            <input type="checkbox" name="service-type" value="Performances" class="accent-[#8A2E5C]">
+            Performances
+          </label>
+          <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
+            <input type="checkbox" name="service-type" value="First dance lessons" class="accent-[#8A2E5C]">
+            First dance lessons
+          </label>
+          <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
+            <input type="checkbox" name="service-type" value="Group party lesson" class="accent-[#8A2E5C]">
+            Group party lesson
+          </label>
+          <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
+            <input type="checkbox" name="service-type" value="Not sure yet" class="accent-[#8A2E5C]">
+            Not sure yet
           </label>
         </div>
       </div>
 
       <div class="grid sm:grid-cols-2 gap-6">
         <div>
-          <label for="email" class="block text-sm font-semibold mb-2">Email address</label>
-          <input type="email" id="email" name="email" required placeholder="you@email.com"
+          <label for="phone" class="block text-sm font-semibold mb-2">Phone number</label>
+          <input type="tel" id="phone" name="phone" required placeholder="(555) 555-5555"
             class="w-full rounded-xl border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#8A2E5C]">
         </div>
         <div>
-          <label for="phone" class="block text-sm font-semibold mb-2">Phone number</label>
-          <input type="tel" id="phone" name="phone" required placeholder="(555) 555-5555"
+          <label for="email" class="block text-sm font-semibold mb-2">Email address</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com"
             class="w-full rounded-xl border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#8A2E5C]">
         </div>
       </div>
 
       <div>
-        <p class="block text-sm font-semibold mb-3">Preferred contact time</p>
+        <p class="block text-sm font-semibold mb-3">Preferred time to call</p>
         <div class="grid sm:grid-cols-3 gap-3">
           <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
-            <input type="radio" name="contact-time" value="morning" class="accent-[#8A2E5C]">
-            Morning (9–12)
-          </label>
-          <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer whitespace-nowrap has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
-            <input type="radio" name="contact-time" value="afternoon" class="accent-[#8A2E5C]">
-            Afternoon (12–5)
+            <input type="checkbox" name="preferred-time" value="Morning" class="accent-[#8A2E5C]">
+            Morning
           </label>
           <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
-            <input type="radio" name="contact-time" value="evening" class="accent-[#8A2E5C]">
-            Evening (5–8)
+            <input type="checkbox" name="preferred-time" value="Afternoon" class="accent-[#8A2E5C]">
+            Afternoon
+          </label>
+          <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
+            <input type="checkbox" name="preferred-time" value="Evening" class="accent-[#8A2E5C]">
+            Evening
           </label>
         </div>
+      </div>
+
+      <div>
+        <p class="block text-sm font-semibold mb-3">Preferred day</p>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
+            <input type="checkbox" name="preferred-day" value="Weekdays" class="accent-[#8A2E5C]">
+            Weekdays
+          </label>
+          <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
+            <input type="checkbox" name="preferred-day" value="Weekends" class="accent-[#8A2E5C]">
+            Weekends
+          </label>
+        </div>
+      </div>
+
+      <div>
+        <label class="flex items-start gap-3 text-sm cursor-pointer">
+          <input type="checkbox" id="consent" name="consent" value="Yes" required class="mt-0.5 accent-[#8A2E5C]">
+          <span>Yes, Soulful Steps may call, text or email me about my event. I can unsubscribe anytime. See our <a href="privacy-policy.html" class="underline hover:text-[#8A2E5C]" target="_blank" rel="noopener noreferrer">privacy policy</a>.</span>
+        </label>
       </div>
 
       <button type="submit" id="intake-submit" class="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#8A2E5C] text-white font-medium hover:bg-[#742649] transition mt-2 disabled:opacity-60" style="box-shadow:0px 4px 8px 0px rgba(138,46,92,0.2)">
@@ -211,10 +260,21 @@
       intakeSubmit.textContent = 'Submitting...';
 
       try {
+        const formData = new FormData(intakeForm);
+
+        // Multi-select checkbox groups: collapse each group's checked boxes
+        // into a single comma-separated value so the Sheet gets one column per field.
+        ['how-heard', 'service-type', 'preferred-time', 'preferred-day'].forEach((name) => {
+          const checked = Array.from(intakeForm.querySelectorAll(`input[name="${name}"]:checked`))
+            .map((el) => el.value);
+          formData.delete(name);
+          formData.set(name, checked.join(', '));
+        });
+
         await fetch(INTAKE_FORM_ENDPOINT, {
           method: 'POST',
           mode: 'no-cors',
-          body: new FormData(intakeForm)
+          body: formData
         });
 
         showThankYou();
