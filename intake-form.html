@@ -94,13 +94,13 @@
       <input type="hidden" name="Source" value="Website">
 
       <div>
-        <label for="event-details" class="block text-sm font-semibold mb-2">Tell us about your event, date, venue, guest count</label>
+        <label for="event-details" class="block text-sm font-semibold mb-2">Tell us about your event, date, venue, guest count <span class="text-[#8A2E5C]" aria-hidden="true">*</span></label>
         <textarea id="event-details" name="event-details" rows="3" required placeholder="e.g. Sangeet on June 12, 2027 at Queens Manor, about 200 guests"
           class="w-full rounded-xl border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#8A2E5C]"></textarea>
       </div>
 
       <div>
-        <p class="block text-sm font-semibold mb-3">How did you hear about us?</p>
+        <p class="block text-sm font-semibold mb-3">How did you hear about us? <span class="text-[#8A2E5C]" aria-hidden="true">*</span></p>
         <div class="grid sm:grid-cols-3 gap-3">
           <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
             <input type="checkbox" name="how-heard" value="Wedding Expo" class="accent-[#8A2E5C]">
@@ -128,7 +128,7 @@
       </div>
 
       <div>
-        <p class="block text-sm font-semibold mb-3">What type of service are you looking for?</p>
+        <p class="block text-sm font-semibold mb-3">What type of service are you looking for? <span class="text-[#8A2E5C]" aria-hidden="true">*</span></p>
         <div class="grid sm:grid-cols-2 gap-3">
           <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
             <input type="checkbox" name="service-type" value="Performances" class="accent-[#8A2E5C]">
@@ -151,19 +151,29 @@
 
       <div class="grid sm:grid-cols-2 gap-6">
         <div>
-          <label for="phone" class="block text-sm font-semibold mb-2">Phone number</label>
+          <label for="first-name" class="block text-sm font-semibold mb-2">First name <span class="text-[#8A2E5C]" aria-hidden="true">*</span></label>
+          <input type="text" id="first-name" name="first-name" required autocomplete="given-name" placeholder="First name"
+            class="w-full rounded-xl border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#8A2E5C]">
+        </div>
+        <div>
+          <label for="last-name" class="block text-sm font-semibold mb-2">Last name <span class="text-[#8A2E5C]" aria-hidden="true">*</span></label>
+          <input type="text" id="last-name" name="last-name" required autocomplete="family-name" placeholder="Last name"
+            class="w-full rounded-xl border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#8A2E5C]">
+        </div>
+        <div>
+          <label for="phone" class="block text-sm font-semibold mb-2">Phone number <span class="text-[#8A2E5C]" aria-hidden="true">*</span></label>
           <input type="tel" id="phone" name="phone" required placeholder="(555) 555-5555"
             class="w-full rounded-xl border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#8A2E5C]">
         </div>
         <div>
-          <label for="email" class="block text-sm font-semibold mb-2">Email address</label>
-          <input type="email" id="email" name="email" placeholder="you@email.com"
+          <label for="email" class="block text-sm font-semibold mb-2">Email address <span class="text-[#8A2E5C]" aria-hidden="true">*</span></label>
+          <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@email.com"
             class="w-full rounded-xl border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#8A2E5C]">
         </div>
       </div>
 
       <div>
-        <p class="block text-sm font-semibold mb-3">Preferred time to call</p>
+        <p class="block text-sm font-semibold mb-3">Preferred time to call <span class="text-[#8A2E5C]" aria-hidden="true">*</span></p>
         <div class="grid sm:grid-cols-3 gap-3">
           <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
             <input type="checkbox" name="preferred-time" value="Morning" class="accent-[#8A2E5C]">
@@ -181,7 +191,7 @@
       </div>
 
       <div>
-        <p class="block text-sm font-semibold mb-3">Preferred day</p>
+        <p class="block text-sm font-semibold mb-3">Preferred day <span class="text-[#8A2E5C]" aria-hidden="true">*</span></p>
         <div class="grid sm:grid-cols-2 gap-3">
           <label class="flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm cursor-pointer has-[:checked]:border-[#8A2E5C] has-[:checked]:bg-[#F1E7EC]">
             <input type="checkbox" name="preferred-day" value="Weekdays" class="accent-[#8A2E5C]">
@@ -197,7 +207,7 @@
       <div>
         <label class="flex items-start gap-3 text-sm cursor-pointer">
           <input type="checkbox" id="consent" name="consent" value="Yes" required class="mt-0.5 accent-[#8A2E5C]">
-          <span>Yes, Soulful Steps may call, text or email me about my event. I can unsubscribe anytime. See our <a href="privacy-policy.html" class="underline hover:text-[#8A2E5C]" target="_blank" rel="noopener noreferrer">privacy policy</a>.</span>
+          <span>Yes, Soulful Steps may call, text or email me about my event. I can unsubscribe anytime. See our <a href="privacy-policy.html" class="underline hover:text-[#8A2E5C]" target="_blank" rel="noopener noreferrer">privacy policy</a>. <span class="text-[#8A2E5C]" aria-hidden="true">*</span></span>
         </label>
       </div>
 
@@ -247,6 +257,23 @@
       if (intakeForm.website.value.trim() !== '') {
         showThankYou();
         return;
+      }
+
+      // Checkbox groups can't use the native `required`, so require at least one pick in each.
+      const requiredGroups = {
+        'how-heard': 'how you heard about us',
+        'service-type': 'a service',
+        'preferred-time': 'a preferred time to call',
+        'preferred-day': 'a preferred day'
+      };
+      for (const [name, label] of Object.entries(requiredGroups)) {
+        if (!intakeForm.querySelector(`input[name="${name}"]:checked`)) {
+          intakeStatus.textContent = `Please choose ${label}.`;
+          intakeStatus.className = 'text-sm font-medium text-center text-red-600';
+          intakeStatus.classList.remove('hidden');
+          intakeForm.querySelector(`input[name="${name}"]`).scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
       }
 
       if (INTAKE_FORM_ENDPOINT.includes('PASTE_YOUR')) {
