@@ -332,14 +332,25 @@
     // Paste your deployed Google Apps Script Web App URL below — same endpoint as intake-form.html.
     const EXPO_FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx75IFZJrNvAnxtEOhn2XNQ30oLIL5W2Cuw0qjTPSSmkUw_fFbiAue1LjtHz78mOcyE/exec';
 
+    // After a submission, show only the confirmation card under the header:
+    // hide every other section on the page and bring the card to the top.
+    function showConfirmation() {
+      expoForm.classList.add('hidden');
+      expoConfirmation.classList.remove('hidden');
+      expoThanks.classList.remove('hidden');
+      document.querySelectorAll('body > section').forEach((section) => {
+        if (section.id !== 'form') section.classList.add('hidden');
+      });
+      document.getElementById('form').classList.add('pt-10', 'md:pt-16');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     expoForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       // Honeypot: real visitors never see or fill this field, bots often do.
       if (expoForm.website.value.trim() !== '') {
-        expoForm.classList.add('hidden');
-        expoConfirmation.classList.remove('hidden');
-        expoThanks.classList.remove('hidden');
+        showConfirmation();
         return;
       }
 
@@ -387,9 +398,7 @@
           body: formData
         });
 
-        expoForm.classList.add('hidden');
-        expoConfirmation.classList.remove('hidden');
-        expoThanks.classList.remove('hidden');
+        showConfirmation();
       } catch (err) {
         expoStatus.textContent = 'Something went wrong sending your form. Please try again or reach out to us directly.';
         expoStatus.className = 'text-sm font-medium text-center text-red-600';

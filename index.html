@@ -29,6 +29,20 @@
   .text-eyebrow { color: #8A2E5C; }
   .dance-accordion summary::-webkit-details-marker { display: none; }
 
+  .hl-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: #E5DFD6;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+  }
+  .hl-dot:hover { background: #c9bfae; }
+  .hl-dot.hl-dot-active { background: #8A2E5C; transform: scale(1.2); }
+  #hl-track::-webkit-scrollbar { display: none; }
+
   .trusted-by-marquee {
     container-type: inline-size;
     overflow: hidden;
@@ -170,25 +184,164 @@
 
   <!-- Upcoming Events -->
   <section class="max-w-7xl mx-auto px-6 md:px-10 pb-12 md:pb-20">
-    <h2 class="font-display text-3xl md:text-4xl font-semibold text-center mb-3">Upcoming Events</h2>
-    <p class="text-center text-[1.5rem] text-eyebrow mb-8 md:mb-10">We will be at the Wedding Expo.</p>
-    <div class="grid grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
-      <div class="col-span-3 rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1]">
-        <img src="Wedding Expo cover.webp" alt="Wedding Expo" class="w-full h-full object-cover" loading="lazy">
+    <h2 class="font-display text-3xl md:text-4xl font-semibold text-center mb-3">Recent Events Highlights</h2>
+    <p class="text-center text-[1.5rem] text-eyebrow mb-8 md:mb-10">Canadian Wedding Expo</p>
+    <div id="hl-carousel" class="relative max-w-4xl mx-auto">
+      <button id="hl-prev" aria-label="Previous photo" class="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 items-center justify-center w-11 h-11 rounded-full bg-white border border-neutral-200 shadow-lg hover:bg-neutral-50">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#341A27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button id="hl-next" aria-label="Next photo" class="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 items-center justify-center w-11 h-11 rounded-full bg-white border border-neutral-200 shadow-lg hover:bg-neutral-50">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#341A27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div id="hl-track" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth" style="scrollbar-width:none;-ms-overflow-style:none;" tabindex="0" role="region" aria-label="Canadian Wedding Expo photo highlights, use left and right arrow keys to scroll">
+        <style>#hl-track::-webkit-scrollbar{display:none}</style>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1]">
+          <img src="Wedding Expo cover.webp" alt="Canadian Wedding Expo" class="w-full h-full object-cover" loading="eager">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1]">
+          <img src="Wedding Expo Highlights/01-Grand prize winner fix lighting.jpg" alt="Canadian Wedding Expo — 01 Grand prize winner fix lighting" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1] bg-neutral-100">
+          <img src="Wedding Expo Highlights/02-Booth with us1.jpg" alt="Canadian Wedding Expo — 02 Booth with us1" class="w-full h-full object-contain" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1] bg-neutral-100">
+          <img src="Wedding Expo Highlights/03-Booth1-brightend.jpg" alt="Canadian Wedding Expo — 03 Booth1 brightend" class="w-full h-full object-contain" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1] bg-neutral-100">
+          <img src="Wedding Expo Highlights/04-Vogue pose-smiles.jpg" alt="Canadian Wedding Expo — 04 Vogue pose smiles" class="w-full h-full object-contain" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1] bg-neutral-100">
+          <img src="Wedding Expo Highlights/Bollywood costume standing smiles.jpg" alt="Canadian Wedding Expo — Bollywood costume standing smiles" class="w-full h-full object-contain" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1]">
+          <img src="Wedding Expo Highlights/Bollywood- kick ups.jpg" alt="Canadian Wedding Expo — Bollywood kick ups" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1] bg-neutral-100">
+          <img src="Wedding Expo Highlights/Bollywood- sassy pose.jpg" alt="Canadian Wedding Expo — Bollywood sassy pose" class="w-full h-full object-contain" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1]">
+          <img src="Wedding Expo Highlights/Bollywood-Albi's nice pose.jpg" alt="Canadian Wedding Expo — Bollywood Albi's nice pose" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1] bg-neutral-100">
+          <img src="Wedding Expo Highlights/Bollywood-Macho man 2 with smile.jpg" alt="Canadian Wedding Expo — Bollywood Macho man 2 with smile" class="w-full h-full object-contain" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1] bg-neutral-100">
+          <img src="Wedding Expo Highlights/Bollywood-bollywood arms.jpg" alt="Canadian Wedding Expo — Bollywood bollywood arms" class="w-full h-full object-contain" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1]">
+          <img src="Wedding Expo Highlights/Bollywood-hands and big smiles.jpg" alt="Canadian Wedding Expo — Bollywood hands and big smiles" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1]">
+          <img src="Wedding Expo Highlights/Bollywood-intro one leg up.jpg" alt="Canadian Wedding Expo — Bollywood intro one leg up" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1] bg-neutral-100">
+          <img src="Wedding Expo Highlights/Bollywood-mavho man lips.jpg" alt="Canadian Wedding Expo — Bollywood mavho man lips" class="w-full h-full object-contain" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1] bg-neutral-100">
+          <img src="Wedding Expo Highlights/CWE looking at the audience in Bollywood.jpg" alt="Canadian Wedding Expo — CWE looking at the audience in Bollywood" class="w-full h-full object-contain" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1]">
+          <img src="Wedding Expo Highlights/Candain Wedding Expo in Bollywood merengue move.jpg" alt="Canadian Wedding Expo — Candain Wedding Expo in Bollywood merengue move" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1]">
+          <img src="Wedding Expo Highlights/Candian Wedding Expo in Bollywood.jpg" alt="Canadian Wedding Expo — Candian Wedding Expo in Bollywood" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1] bg-neutral-100">
+          <img src="Wedding Expo Highlights/Profile Smily pic in costume.jpg" alt="Canadian Wedding Expo — Profile Smily pic in costume" class="w-full h-full object-contain" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1] bg-neutral-100">
+          <img src="Wedding Expo Highlights/Salsa-Open arm smiles.jpg" alt="Canadian Wedding Expo — Salsa Open arm smiles" class="w-full h-full object-contain" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1] bg-neutral-100">
+          <img src="Wedding Expo Highlights/Salsa-Sassy cross Smiles.jpg" alt="Canadian Wedding Expo — Salsa Sassy cross Smiles" class="w-full h-full object-contain" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1] bg-neutral-100">
+          <img src="Wedding Expo Highlights/Salsa-hand flair.jpg" alt="Canadian Wedding Expo — Salsa hand flair" class="w-full h-full object-contain" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1] bg-neutral-100">
+          <img src="Wedding Expo Highlights/Salsa-kick split.jpg" alt="Canadian Wedding Expo — Salsa kick split" class="w-full h-full object-contain" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1] bg-neutral-100">
+          <img src="Wedding Expo Highlights/Vendor interaction.jpg" alt="Canadian Wedding Expo — Vendor interaction" class="w-full h-full object-contain" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1] bg-neutral-100">
+          <img src="Wedding Expo Highlights/Vendors-flower marshmellow funny brightened.jpg" alt="Canadian Wedding Expo — Vendors flower marshmellow funny brightened" class="w-full h-full object-contain" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1] bg-neutral-100">
+          <img src="Wedding Expo Highlights/ZzSalsa-dip.jpg" alt="Canadian Wedding Expo — ZzSalsa dip" class="w-full h-full object-contain" loading="lazy">
+        </div>
+        <div class="hl-slide flex-none w-full snap-center rounded-2xl overflow-hidden border border-neutral-200 aspect-[2/1] bg-neutral-100">
+          <img src="Wedding Expo Highlights/zSalsa- Ending pose.jpg" alt="Canadian Wedding Expo — zSalsa Ending pose" class="w-full h-full object-contain" loading="lazy">
+        </div>
+      </div>
+      <div id="hl-dots" class="flex flex-wrap items-center justify-center gap-2 mt-5" role="tablist" aria-label="Choose a photo">
+          <button type="button" class="hl-dot hl-dot-active" aria-label="Go to photo 1 of 26" aria-current="true"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 2 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 3 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 4 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 5 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 6 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 7 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 8 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 9 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 10 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 11 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 12 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 13 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 14 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 15 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 16 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 17 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 18 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 19 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 20 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 21 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 22 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 23 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 24 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 25 of 26"></button>
+          <button type="button" class="hl-dot" aria-label="Go to photo 26 of 26"></button>
       </div>
     </div>
     <p class="text-center text-neutral-500 mt-6 max-w-4xl mx-auto">
       Queens Manor event Centre . Brampton,&nbsp;ON<br>
       Sunday, October 4&nbsp;&nbsp;•&nbsp;&nbsp;12 PM - 5 PM
     </p>
-    <a href="https://www.eventbrite.ca/e/canadian-wedding-expo-fall-2026-toronto-bridal-wedding-show-tickets-1992579368530" target="_blank" rel="noopener noreferrer" class="mt-6 max-w-4xl mx-auto flex items-center justify-between gap-4 bg-white rounded-2xl border border-neutral-200 shadow-sm px-6 py-5 hover:shadow-md transition">
-      <div>
-        <p class="font-semibold text-lg text-[#1a1a2e]">From CA$16.54</p>
-        <p class="text-neutral-500">Sun, Oct 4 &bull; 12 PM</p>
-      </div>
-      <span class="shrink-0 inline-flex items-center justify-center px-6 py-3 rounded-lg bg-[#d1410c] text-white font-bold hover:bg-[#b8380a] transition">Get tickets</span>
-    </a>
   </section>
+
+  <script>
+    const hlCarousel = document.getElementById('hl-carousel');
+    const hlTrack = document.getElementById('hl-track');
+    const hlPrev = document.getElementById('hl-prev');
+    const hlNext = document.getElementById('hl-next');
+    const hlSlides = Array.from(hlTrack.querySelectorAll('.hl-slide'));
+    const hlDots = Array.from(document.querySelectorAll('#hl-dots .hl-dot'));
+    const hlScrollAmount = () => hlTrack.clientWidth;
+    hlPrev.addEventListener('click', () => hlTrack.scrollBy({ left: -hlScrollAmount(), behavior: 'smooth' }));
+    hlNext.addEventListener('click', () => hlTrack.scrollBy({ left: hlScrollAmount(), behavior: 'smooth' }));
+    hlCarousel.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); hlTrack.scrollBy({ left: hlScrollAmount(), behavior: 'smooth' }); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); hlTrack.scrollBy({ left: -hlScrollAmount(), behavior: 'smooth' }); }
+    });
+    hlDots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        hlSlides[i].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      });
+    });
+    const hlObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const idx = hlSlides.indexOf(entry.target);
+          if (idx === -1) return;
+          hlDots.forEach((d, i) => {
+            d.classList.toggle('hl-dot-active', i === idx);
+            if (i === idx) { d.setAttribute('aria-current', 'true'); } else { d.removeAttribute('aria-current'); }
+          });
+        }
+      });
+    }, { root: hlTrack, threshold: 0.6 });
+    hlSlides.forEach((s) => hlObserver.observe(s));
+  </script>
 
   <!-- Introduction -->
   <section class="max-w-7xl mx-auto px-6 md:px-10 pb-12 md:pb-20 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
@@ -259,7 +412,7 @@
     <div class="max-w-7xl mx-auto px-6 md:px-10 py-10 sm:py-20">
       <h2 class="font-display text-3xl md:text-4xl font-semibold text-center text-[#341A27] mb-3">Customer Testimonials</h2>
       <p class="text-center text-[1.5rem] text-eyebrow mb-[20px] sm:mb-14">Hear About our Audience's Experience.</p>
-      <div class="relative">
+      <div id="testimonials-carousel" class="relative">
         <button id="testimonials-prev" aria-label="Scroll left" class="flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 items-center justify-center w-11 h-11 rounded-full bg-white border border-neutral-200 shadow-lg hover:bg-neutral-50">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#341A27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
         </button>
@@ -355,6 +508,12 @@
         </article>
 
         </div>
+        <div id="testimonials-dots" class="flex flex-wrap items-center justify-center gap-2 mt-5" role="tablist" aria-label="Choose a testimonial">
+          <button type="button" class="hl-dot hl-dot-active" aria-label="Go to testimonial 1 of 4" aria-current="true"></button>
+          <button type="button" class="hl-dot" aria-label="Go to testimonial 2 of 4"></button>
+          <button type="button" class="hl-dot" aria-label="Go to testimonial 3 of 4"></button>
+          <button type="button" class="hl-dot" aria-label="Go to testimonial 4 of 4"></button>
+        </div>
       </div>
 
       <div class="text-center mt-[24px] sm:mt-14">
@@ -364,16 +523,55 @@
   </section>
 
   <script>
+    // Shared helpers for carousel dot indicators + keyboard access on prev/next buttons.
+    function wireCarouselDots(trackEl, dotsEl, slideSelector) {
+      if (!trackEl || !dotsEl) return;
+      const slides = Array.from(trackEl.querySelectorAll(slideSelector));
+      const dots = Array.from(dotsEl.querySelectorAll('.hl-dot'));
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          const target = slides[i];
+          if (target) target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        });
+      });
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = slides.indexOf(entry.target);
+            if (idx === -1) return;
+            dots.forEach((d, i) => {
+              d.classList.toggle('hl-dot-active', i === idx);
+              if (i === idx) { d.setAttribute('aria-current', 'true'); } else { d.removeAttribute('aria-current'); }
+            });
+          }
+        });
+      }, { root: trackEl, threshold: 0.6 });
+      slides.forEach((s) => observer.observe(s));
+    }
+    // Makes left/right arrow keys work no matter which element inside the carousel
+    // (track or a prev/next button) currently has keyboard focus.
+    function wireCarouselKeyboard(carouselEl, onLeft, onRight) {
+      if (!carouselEl) return;
+      carouselEl.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); onRight(); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); onLeft(); }
+      });
+    }
+
+    const testimonialsCarousel = document.getElementById('testimonials-carousel');
     const testimonialsTrack = document.getElementById('testimonials-track');
     const testimonialsPrev = document.getElementById('testimonials-prev');
     const testimonialsNext = document.getElementById('testimonials-next');
+    const testimonialsDots = document.getElementById('testimonials-dots');
     const testimonialsScrollAmount = () => testimonialsTrack.clientWidth * 0.9;
     testimonialsPrev.addEventListener('click', () => testimonialsTrack.scrollBy({ left: -testimonialsScrollAmount(), behavior: 'smooth' }));
     testimonialsNext.addEventListener('click', () => testimonialsTrack.scrollBy({ left: testimonialsScrollAmount(), behavior: 'smooth' }));
-    testimonialsTrack.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') { e.preventDefault(); testimonialsTrack.scrollBy({ left: testimonialsScrollAmount(), behavior: 'smooth' }); }
-      if (e.key === 'ArrowLeft') { e.preventDefault(); testimonialsTrack.scrollBy({ left: -testimonialsScrollAmount(), behavior: 'smooth' }); }
-    });
+    wireCarouselKeyboard(
+      testimonialsCarousel,
+      () => testimonialsTrack.scrollBy({ left: -testimonialsScrollAmount(), behavior: 'smooth' }),
+      () => testimonialsTrack.scrollBy({ left: testimonialsScrollAmount(), behavior: 'smooth' })
+    );
+    wireCarouselDots(testimonialsTrack, testimonialsDots, '> article');
   </script>
 
   <!-- Photo Gallery -->
@@ -381,7 +579,7 @@
     <h2 class="font-display text-3xl md:text-4xl font-semibold text-center mb-3">Photo Gallery</h2>
     <p class="text-center text-[1.5rem] text-eyebrow mb-[20px] sm:mb-10">Check out some of our past shows.</p>
 
-    <div class="relative">
+    <div id="gallery-carousel" class="relative">
       <button id="gallery-prev" aria-label="Scroll left" class="flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 items-center justify-center w-11 h-11 rounded-full bg-white border border-neutral-200 shadow-lg hover:bg-neutral-50">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#341A27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
@@ -523,6 +721,12 @@
             <img src="Photo Gallery/Anton's shoot/img.Anton's shoot 25.jpg" alt="Anton's shoot 25" class="w-full h-full object-cover" loading="lazy">
           </div>
         </div>
+      </div>
+      <div id="gallery-dots-desktop" class="hidden sm:flex flex-wrap items-center justify-center gap-2 mt-5" role="tablist" aria-label="Choose a photo gallery page">
+        <button type="button" class="hl-dot hl-dot-active" aria-label="Go to gallery page 1 of 4" aria-current="true"></button>
+        <button type="button" class="hl-dot" aria-label="Go to gallery page 2 of 4"></button>
+        <button type="button" class="hl-dot" aria-label="Go to gallery page 3 of 4"></button>
+        <button type="button" class="hl-dot" aria-label="Go to gallery page 4 of 4"></button>
       </div>
 
       <div id="gallery-track-mobile" class="flex sm:hidden overflow-x-auto snap-x snap-mandatory scroll-smooth" style="scrollbar-width:none;-ms-overflow-style:none;" tabindex="0" role="region" aria-label="Photo gallery, use left and right arrow keys to scroll">
@@ -669,14 +873,26 @@
           </div>
         </div>
       </div>
+      <div id="gallery-dots-mobile" class="flex sm:hidden flex-wrap items-center justify-center gap-2 mt-5" role="tablist" aria-label="Choose a photo gallery page">
+        <button type="button" class="hl-dot hl-dot-active" aria-label="Go to gallery page 1 of 7" aria-current="true"></button>
+        <button type="button" class="hl-dot" aria-label="Go to gallery page 2 of 7"></button>
+        <button type="button" class="hl-dot" aria-label="Go to gallery page 3 of 7"></button>
+        <button type="button" class="hl-dot" aria-label="Go to gallery page 4 of 7"></button>
+        <button type="button" class="hl-dot" aria-label="Go to gallery page 5 of 7"></button>
+        <button type="button" class="hl-dot" aria-label="Go to gallery page 6 of 7"></button>
+        <button type="button" class="hl-dot" aria-label="Go to gallery page 7 of 7"></button>
+      </div>
     </div>
   </section>
 
   <script>
+    const galleryCarousel = document.getElementById('gallery-carousel');
     const galleryTrackDesktop = document.getElementById('gallery-track-desktop');
     const galleryTrackMobile = document.getElementById('gallery-track-mobile');
     const galleryPrev = document.getElementById('gallery-prev');
     const galleryNext = document.getElementById('gallery-next');
+    const galleryDotsDesktop = document.getElementById('gallery-dots-desktop');
+    const galleryDotsMobile = document.getElementById('gallery-dots-mobile');
     const getActiveGalleryTrack = () => (window.innerWidth >= 640 ? galleryTrackDesktop : galleryTrackMobile);
     galleryPrev.addEventListener('click', () => {
       const t = getActiveGalleryTrack();
@@ -686,12 +902,13 @@
       const t = getActiveGalleryTrack();
       t.scrollBy({ left: t.clientWidth, behavior: 'smooth' });
     });
-    [galleryTrackDesktop, galleryTrackMobile].forEach((track) => {
-      track.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') { e.preventDefault(); track.scrollBy({ left: track.clientWidth, behavior: 'smooth' }); }
-        if (e.key === 'ArrowLeft') { e.preventDefault(); track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' }); }
-      });
-    });
+    wireCarouselKeyboard(
+      galleryCarousel,
+      () => { const t = getActiveGalleryTrack(); t.scrollBy({ left: -t.clientWidth, behavior: 'smooth' }); },
+      () => { const t = getActiveGalleryTrack(); t.scrollBy({ left: t.clientWidth, behavior: 'smooth' }); }
+    );
+    wireCarouselDots(galleryTrackDesktop, galleryDotsDesktop, '> div.flex-none');
+    wireCarouselDots(galleryTrackMobile, galleryDotsMobile, '> div.flex-none');
   </script>
 
   <!-- Featured Products -->
@@ -701,7 +918,7 @@
       Every piece is a story, choreographed for your moment.
     </p>
 
-    <div class="relative">
+    <div id="products-carousel" class="relative">
       <button id="products-prev" aria-label="Scroll left" class="flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 items-center justify-center w-11 h-11 rounded-full bg-white border border-neutral-200 shadow-lg hover:bg-neutral-50">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#341A27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
@@ -807,6 +1024,13 @@
         </div>
       </article>
       </div>
+      <div id="products-dots" class="flex flex-wrap items-center justify-center gap-2 mt-5" role="tablist" aria-label="Choose a product">
+        <button type="button" class="hl-dot hl-dot-active" aria-label="Go to product 1 of 5" aria-current="true"></button>
+        <button type="button" class="hl-dot" aria-label="Go to product 2 of 5"></button>
+        <button type="button" class="hl-dot" aria-label="Go to product 3 of 5"></button>
+        <button type="button" class="hl-dot" aria-label="Go to product 4 of 5"></button>
+        <button type="button" class="hl-dot" aria-label="Go to product 5 of 5"></button>
+      </div>
     </div>
 
     <div class="text-center mt-[24px] sm:mt-14">
@@ -896,16 +1120,20 @@
   </section>
 
   <script>
+    const productsCarousel = document.getElementById('products-carousel');
     const productsTrack = document.getElementById('products-track');
     const productsPrev = document.getElementById('products-prev');
     const productsNext = document.getElementById('products-next');
+    const productsDots = document.getElementById('products-dots');
     const productsScrollAmount = () => productsTrack.clientWidth * 0.9;
     productsPrev.addEventListener('click', () => productsTrack.scrollBy({ left: -productsScrollAmount(), behavior: 'smooth' }));
     productsNext.addEventListener('click', () => productsTrack.scrollBy({ left: productsScrollAmount(), behavior: 'smooth' }));
-    productsTrack.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') { e.preventDefault(); productsTrack.scrollBy({ left: productsScrollAmount(), behavior: 'smooth' }); }
-      if (e.key === 'ArrowLeft') { e.preventDefault(); productsTrack.scrollBy({ left: -productsScrollAmount(), behavior: 'smooth' }); }
-    });
+    wireCarouselKeyboard(
+      productsCarousel,
+      () => productsTrack.scrollBy({ left: -productsScrollAmount(), behavior: 'smooth' }),
+      () => productsTrack.scrollBy({ left: productsScrollAmount(), behavior: 'smooth' })
+    );
+    wireCarouselDots(productsTrack, productsDots, '> article');
   </script>
 
   <script>
