@@ -571,7 +571,7 @@
       () => testimonialsTrack.scrollBy({ left: -testimonialsScrollAmount(), behavior: 'smooth' }),
       () => testimonialsTrack.scrollBy({ left: testimonialsScrollAmount(), behavior: 'smooth' })
     );
-    wireCarouselDots(testimonialsTrack, testimonialsDots, '> article');
+    wireCarouselDots(testimonialsTrack, testimonialsDots, ':scope > article');
   </script>
 
   <!-- Photo Gallery -->
@@ -907,8 +907,8 @@
       () => { const t = getActiveGalleryTrack(); t.scrollBy({ left: -t.clientWidth, behavior: 'smooth' }); },
       () => { const t = getActiveGalleryTrack(); t.scrollBy({ left: t.clientWidth, behavior: 'smooth' }); }
     );
-    wireCarouselDots(galleryTrackDesktop, galleryDotsDesktop, '> div.flex-none');
-    wireCarouselDots(galleryTrackMobile, galleryDotsMobile, '> div.flex-none');
+    wireCarouselDots(galleryTrackDesktop, galleryDotsDesktop, ':scope > div.flex-none');
+    wireCarouselDots(galleryTrackMobile, galleryDotsMobile, ':scope > div.flex-none');
   </script>
 
   <!-- Featured Products -->
@@ -1133,7 +1133,7 @@
       () => productsTrack.scrollBy({ left: -productsScrollAmount(), behavior: 'smooth' }),
       () => productsTrack.scrollBy({ left: productsScrollAmount(), behavior: 'smooth' })
     );
-    wireCarouselDots(productsTrack, productsDots, '> article');
+    wireCarouselDots(productsTrack, productsDots, ':scope > article');
   </script>
 
   <script>
