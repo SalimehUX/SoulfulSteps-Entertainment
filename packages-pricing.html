@@ -67,11 +67,24 @@
   <script>
     const menuToggle = document.getElementById('menu-toggle');
     const menuPanel = document.getElementById('menu-panel');
-    menuToggle.addEventListener('click', () => {
+    function closeMenu() {
+      menuPanel.classList.add('hidden');
+      menuPanel.classList.remove('flex');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       const isOpen = !menuPanel.classList.contains('hidden');
       menuPanel.classList.toggle('hidden');
       menuPanel.classList.toggle('flex');
       menuToggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+    // Close the menu on any tap/click outside it (covers mobile too, since
+    // touch events fire a click after themselves).
+    document.addEventListener('click', (e) => {
+      if (!menuPanel.classList.contains('hidden') && !menuPanel.contains(e.target)) {
+        closeMenu();
+      }
     });
   </script>
 
@@ -113,8 +126,8 @@
       </div>
 
       <div class="flex flex-col rounded-2xl border border-neutral-200 bg-white p-8">
-        <h2 class="font-display text-2xl font-semibold mb-1">Package 1 <span class="text-base font-normal text-neutral-500">(Dance Lessons)</span></h2>
-        <p class="text-sm font-semibold text-eyebrow mb-5">First Dance Choreography Lessons</p>
+        <h2 class="font-display text-2xl font-semibold mb-4">Package 1 <span class="text-base font-normal text-neutral-500">(Dance Lessons)</span></h2>
+        <p class="font-display text-xl font-semibold text-eyebrow mb-5">First Dance Choreography Lessons for engaged couples</p>
         <ul class="space-y-3 text-sm text-neutral-600 mb-6">
           <li><span class="font-semibold text-[#341A27]">Number:</span> 10 Lessons</li>
           <li><span class="font-semibold text-[#341A27]">Length:</span> 60 Minutes Each</li>
