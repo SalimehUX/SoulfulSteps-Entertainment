@@ -30,6 +30,20 @@
   @media (min-width: 768px) {
     .closing-bg { background-position: center 5%; }
   }
+  .hl-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: #E5DFD6;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+  }
+  .hl-dot:hover { background: #c9bfae; }
+  .hl-dot.hl-dot-active { background: #8A2E5C; transform: scale(1.2); }
+  #pkg-track { cursor: grab; }
+  #pkg-track.dragging { cursor: grabbing; user-select: none; scroll-behavior: auto; }
 </style>
 </head>
 <body class="bg-[#FFFDF7]">
@@ -89,101 +103,78 @@
 
   <!-- Page Heading -->
   <section id="main" class="max-w-7xl mx-auto px-6 md:px-10 pt-14 pb-2">
-    <h1 class="uppercase tracking-[0.25em] text-xs font-semibold text-eyebrow text-center">Packages. Pricing . Performances.</h1>
+    <h1 class="uppercase tracking-[0.25em] text-xs font-semibold text-eyebrow text-center">Packages</h1>
   </section>
 
-  <!-- Section 1: Overview + Process + Package 1 -->
-  <section class="max-w-7xl mx-auto px-6 md:px-10 pt-6 pb-10 sm:pb-16">
-    <div class="grid md:grid-cols-3 gap-6">
-
-      <div class="flex flex-col rounded-2xl border border-neutral-200 bg-white p-8">
-        <h2 class="font-display text-2xl font-semibold mb-1">Soulful Steps Entertainment</h2>
-        <p class="text-sm font-semibold text-neutral-500 mb-5">Dance Packages 2026</p>
-        <div class="rounded-2xl overflow-hidden border border-neutral-200 aspect-[4/5] mb-6">
-          <img src="Products/A Love Story/Love story -The dip.JPG" alt="Soulful Steps dancers mid-dip" class="w-full h-full object-cover" loading="lazy">
-        </div>
-        <hr class="border-neutral-300 mb-5">
-        <p class="text-sm text-neutral-600"><span class="font-semibold text-[#341A27]">Includes:</span> Taking photos with the dancers and transportation within the GTA.</p>
-      </div>
-
-      <div class="flex flex-col rounded-2xl border border-neutral-200 bg-white p-8">
-        <h2 class="font-display text-2xl font-semibold mb-6">Our Process</h2>
-        <div class="space-y-6">
-          <div>
-            <p class="text-sm font-semibold text-eyebrow mb-1">Step 1</p>
-            <p class="text-sm text-neutral-600">Learn about your event.</p>
-          </div>
-          <div>
-            <p class="text-sm font-semibold text-eyebrow mb-1">Step 2</p>
-            <p class="text-sm text-neutral-600">Choose your package.</p>
-          </div>
-          <div>
-            <p class="text-sm font-semibold text-eyebrow mb-1">Step 3</p>
-            <p class="text-sm text-neutral-600">Book us by making a $50 deposit.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex flex-col rounded-2xl border border-neutral-200 bg-white p-8">
-        <h2 class="font-display text-2xl font-semibold mb-4">Package 1 <span class="text-base font-normal text-neutral-500">(Dance Lessons)</span></h2>
-        <p class="font-display text-xl font-semibold text-eyebrow mb-5">First Dance Choreography Lessons for engaged couples</p>
-        <ul class="space-y-3 text-sm text-neutral-600 mb-6">
-          <li><span class="font-semibold text-[#341A27]">Number:</span> 10 Lessons</li>
-          <li><span class="font-semibold text-[#341A27]">Length:</span> 60 Minutes Each</li>
-          <li><span class="font-semibold text-[#341A27]">Location:</span> At your home</li>
-        </ul>
-        <div class="mt-auto pt-5 border-t border-neutral-100">
-          <p class="font-display text-xl font-semibold text-eyebrow">Price: $1500</p>
-          <p class="text-xs text-neutral-500 mt-1">(More sessions can be purchased)</p>
-        </div>
-      </div>
-
+  <!-- Intro: Our Packages + Image & Process (2 columns, no cards) -->
+  <section class="bg-[#FFFDF7]">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 pt-6 pb-10 sm:pb-16">
+      <h2 class="font-display text-3xl md:text-4xl font-semibold text-center mb-3">Our Packages</h2>
+      <p class="text-center text-[1.5rem] text-eyebrow">See our Performance &amp; Lesson Packages</p>
     </div>
   </section>
 
-  <!-- Section 2: Package 2, 3, 4 -->
+  <!-- Packages carousel -->
   <section class="max-w-7xl mx-auto px-6 md:px-10 pb-16 sm:pb-24">
-    <div class="grid md:grid-cols-3 gap-6">
+    <div id="pkg-carousel" class="relative">
+      <button id="pkg-prev" aria-label="Scroll left" class="flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 items-center justify-center w-11 h-11 rounded-full bg-white border border-neutral-200 shadow-lg hover:bg-neutral-50">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#341A27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button id="pkg-next" aria-label="Scroll right" class="flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 items-center justify-center w-11 h-11 rounded-full bg-white border border-neutral-200 shadow-lg hover:bg-neutral-50">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#341A27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
 
-      <div class="flex flex-col rounded-2xl border border-neutral-200 bg-white p-8">
-        <h2 class="font-display text-2xl font-semibold mb-6">Package 2 <span class="text-base font-normal text-neutral-500">(4 Dance Shows)</span></h2>
-        <ul class="space-y-2 text-sm text-neutral-600 mb-6">
-          <li>Performance 1</li>
-          <li>Performance 2</li>
-          <li>Performance 3</li>
-          <li>Performance 4</li>
-        </ul>
-        <div class="mt-auto pt-5 border-t border-neutral-100">
-          <p class="text-sm font-semibold text-[#341A27] mb-1">Two Dancers (male &amp; female)</p>
-          <p class="font-display text-xl font-semibold text-eyebrow">Price: $1000</p>
+      <div id="pkg-track" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2" style="scrollbar-width:none;-ms-overflow-style:none;" tabindex="0" role="region" aria-label="Dance packages, use left and right arrow keys to scroll">
+        <style>#pkg-track::-webkit-scrollbar{display:none}</style>
+
+        <div class="pkg-slide flex-none w-full md:w-[calc(33.333%-16px)] snap-center flex flex-col rounded-2xl border border-neutral-200 bg-white p-10 min-h-[380px]">
+          <h2 class="font-display text-2xl font-semibold mb-6">Gold Package</h2>
+          <p class="font-display text-xl font-semibold text-eyebrow mt-auto mb-5">4 performances at your event, spaced out with costume changes. Total of 35 minutes.</p>
+          <div class="mt-auto pt-5 border-t border-neutral-100">
+            <p class="text-sm font-semibold text-[#341A27] mb-1">Danced by a couple</p>
+            <p class="text-neutral-500">Price: $1000</p>
+          </div>
         </div>
-      </div>
 
-      <div class="flex flex-col rounded-2xl border border-neutral-200 bg-white p-8">
-        <h2 class="font-display text-2xl font-semibold mb-6">Package 3 <span class="text-base font-normal text-neutral-500">(3 Dance Shows)</span></h2>
-        <ul class="space-y-2 text-sm text-neutral-600 mb-6">
-          <li>Performance 1</li>
-          <li>Performance 2</li>
-          <li>Performance 3</li>
-        </ul>
-        <div class="mt-auto pt-5 border-t border-neutral-100">
-          <p class="text-sm font-semibold text-[#341A27] mb-1">Two Dancers (male &amp; female)</p>
-          <p class="font-display text-xl font-semibold text-eyebrow">Price: $700</p>
+        <div class="pkg-slide flex-none w-full md:w-[calc(33.333%-16px)] snap-center flex flex-col rounded-2xl border border-neutral-200 bg-white p-10 min-h-[380px]">
+          <h2 class="font-display text-2xl font-semibold mb-6">Silver Package</h2>
+          <p class="font-display text-xl font-semibold text-eyebrow mt-auto mb-5">3 performances at your event, spaced out with costume changes. Total of 20 minutes.</p>
+          <div class="mt-auto pt-5 border-t border-neutral-100">
+            <p class="text-sm font-semibold text-[#341A27] mb-1">Danced by a couple</p>
+            <p class="text-neutral-500">Price: $700</p>
+          </div>
         </div>
-      </div>
 
-      <div class="flex flex-col rounded-2xl border border-neutral-200 bg-white p-8">
-        <h2 class="font-display text-2xl font-semibold mb-6">Package 4 <span class="text-base font-normal text-neutral-500">(2 Dance Shows)</span></h2>
-        <ul class="space-y-2 text-sm text-neutral-600 mb-6">
-          <li>Performance 1</li>
-          <li>Performance 2</li>
-        </ul>
-        <div class="mt-auto pt-5 border-t border-neutral-100">
-          <p class="text-sm font-semibold text-[#341A27] mb-1">Two Dancers (male &amp; female)</p>
-          <p class="font-display text-xl font-semibold text-eyebrow">Price: $500</p>
+        <div class="pkg-slide flex-none w-full md:w-[calc(33.333%-16px)] snap-center flex flex-col rounded-2xl border border-neutral-200 bg-white p-10 min-h-[380px]">
+          <h2 class="font-display text-2xl font-semibold mb-6">Bronze Package</h2>
+          <p class="font-display text-xl font-semibold text-eyebrow mt-auto mb-5">2 performances at your event, spaced out with costume changes. Total of 15 minutes.</p>
+          <div class="mt-auto pt-5 border-t border-neutral-100">
+            <p class="text-sm font-semibold text-[#341A27] mb-1">Danced by a couple</p>
+            <p class="text-neutral-500">Price: $500</p>
+          </div>
         </div>
-      </div>
 
+        <div class="pkg-slide flex-none w-full md:w-[calc(33.333%-16px)] snap-center flex flex-col rounded-2xl border border-neutral-200 bg-white p-10 min-h-[380px]">
+          <h2 class="font-display text-2xl font-semibold mb-4">First-Dance Package <span class="block text-base font-normal text-neutral-500">(Dance Lessons)</span></h2>
+          <p class="font-display text-xl font-semibold text-eyebrow mb-5">A choreographed piece to your song of choice, customized to your comfort level.</p>
+          <ul class="space-y-3 text-sm text-neutral-600 mb-6 mt-10">
+            <li><span class="font-semibold text-[#341A27]">Number:</span> 10 Lessons</li>
+            <li><span class="font-semibold text-[#341A27]">Length:</span> 60 Minutes Each</li>
+            <li><span class="font-semibold text-[#341A27]">Location:</span> At your home</li>
+          </ul>
+          <div class="mt-auto pt-5 border-t border-neutral-100">
+            <p class="text-neutral-500">Price: $1500</p>
+            <p class="text-xs text-neutral-500 mt-1">(More sessions can be purchased)</p>
+          </div>
+        </div>
+
+      </div>
+      <div id="pkg-dots" class="flex flex-wrap items-center justify-center gap-2 mt-5" role="tablist" aria-label="Choose a package">
+        <button type="button" class="hl-dot hl-dot-active" aria-label="Go to package 1 of 4" aria-current="true"></button>
+        <button type="button" class="hl-dot" aria-label="Go to package 2 of 4"></button>
+        <button type="button" class="hl-dot" aria-label="Go to package 3 of 4"></button>
+        <button type="button" class="hl-dot" aria-label="Go to package 4 of 4"></button>
+      </div>
     </div>
 
     <div class="text-center mt-10 sm:mt-14">
@@ -193,8 +184,8 @@
 
   <!-- Performances & Pricing -->
   <section class="max-w-7xl mx-auto px-6 md:px-10 pb-16 sm:pb-24">
-    <h2 class="font-display text-3xl md:text-4xl font-semibold text-center mb-3">Performances &amp; Pricing</h2>
-    <p class="text-center text-[1.5rem] text-eyebrow mb-10 sm:mb-14 max-w-2xl mx-auto leading-snug">Select your choice of performances and tell us in your message about your choices.</p>
+    <h2 class="font-display text-3xl md:text-4xl font-semibold text-center mb-3">Performances</h2>
+    <p class="text-center text-[1.5rem] text-eyebrow mb-10 sm:mb-14 max-w-2xl mx-auto leading-snug">Select your choice of performances.</p>
 
     <div class="space-y-14 sm:space-y-20">
       <div class="grid md:grid-cols-3 gap-6">
@@ -204,9 +195,6 @@
           <p class="text-sm text-neutral-600 mb-5">A love story performance showcasing a sweeping, joyful romance.</p>
           <p class="text-sm text-neutral-600 mb-1"><span class="font-semibold text-[#341A27]">Genre:</span> Salsa</p>
           <p class="text-sm text-neutral-600"><span class="font-semibold text-[#341A27]">Song:</span> Die with a Smile</p>
-          <div class="mt-auto pt-5 border-t border-neutral-100">
-            <p class="text-xs text-neutral-500"><span class="font-semibold text-[#341A27]">Includes:</span> Taking photos with the dancers and transportation within the GTA.</p>
-          </div>
         </div>
         <div class="rounded-2xl overflow-hidden border border-neutral-200 aspect-[3/4]">
           <img src="Photo Gallery/img.DWS the romance.JPG" alt="Salsa Show #1 — the romance" class="w-full h-full object-cover" loading="lazy">
@@ -223,9 +211,6 @@
           <p class="text-sm text-neutral-600 mb-5">A salsa showcase built for an elegant event, bold, sultry, romantic.</p>
           <p class="text-sm text-neutral-600 mb-1"><span class="font-semibold text-[#341A27]">Genre:</span> Cha Cha &amp; Salsa</p>
           <p class="text-sm text-neutral-600"><span class="font-semibold text-[#341A27]">Song:</span> De La Vuelta</p>
-          <div class="mt-auto pt-5 border-t border-neutral-100">
-            <p class="text-xs text-neutral-500"><span class="font-semibold text-[#341A27]">Includes:</span> Taking photos with the dancers and transportation within the GTA.</p>
-          </div>
         </div>
         <div class="rounded-2xl overflow-hidden border border-neutral-200 aspect-[3/4]">
           <img src="img.De La Vuelta.jpg" alt="Salsa Show #2 — De La Vuelta" class="w-full h-full object-cover" loading="lazy">
@@ -242,9 +227,6 @@
           <p class="text-sm text-neutral-600 mb-5">A fiery piece, with sharp choreography and playful connection.</p>
           <p class="text-sm text-neutral-600 mb-1"><span class="font-semibold text-[#341A27]">Genre:</span> Bollywood, Cha Cha &amp; Merengue</p>
           <p class="text-sm text-neutral-600"><span class="font-semibold text-[#341A27]">Songs:</span> O Saki Saki &amp; Laila Main Laila</p>
-          <div class="mt-auto pt-5 border-t border-neutral-100">
-            <p class="text-xs text-neutral-500"><span class="font-semibold text-[#341A27]">Includes:</span> Taking photos with the dancers and transportation within the GTA.</p>
-          </div>
         </div>
         <div class="rounded-2xl overflow-hidden border border-neutral-200 aspect-[3/4]">
           <img src="O Saki Saki open arms  image.JPG" alt="Bollywood Fusion #1 — open arms" class="w-full h-full object-cover" loading="lazy">
@@ -261,9 +243,6 @@
           <p class="text-sm text-neutral-600 mb-5">Bollywood grace meets Latin fire in a flirtatious, magnetic showcase.</p>
           <p class="text-sm text-neutral-600 mb-1"><span class="font-semibold text-[#341A27]">Genre:</span> Bollywood, Flamenco, Salsa, Merengue</p>
           <p class="text-sm text-neutral-600"><span class="font-semibold text-[#341A27]">Song:</span> Señorita</p>
-          <div class="mt-auto pt-5 border-t border-neutral-100">
-            <p class="text-xs text-neutral-500"><span class="font-semibold text-[#341A27]">Includes:</span> Taking photos with the dancers and transportation within the GTA.</p>
-          </div>
         </div>
         <div class="rounded-2xl overflow-hidden border border-neutral-200 aspect-[3/4]">
           <img src="Products/Senorita - A Playful piece/Senorita Thumbnail.jpg" alt="Bollywood Fusion #2 — Señorita embrace" class="w-full h-full object-cover" loading="lazy">
@@ -280,9 +259,6 @@
           <p class="text-sm text-neutral-600 mb-5">A romance story honoring love, for a couple who are happy to have found each other.</p>
           <p class="text-sm text-neutral-600 mb-1"><span class="font-semibold text-[#341A27]">Genre:</span> Bachata</p>
           <p class="text-sm text-neutral-600"><span class="font-semibold text-[#341A27]">Songs:</span> Perdoname</p>
-          <div class="mt-auto pt-5 border-t border-neutral-100">
-            <p class="text-xs text-neutral-500"><span class="font-semibold text-[#341A27]">Includes:</span> Taking photos with the dancers and transportation within the GTA.</p>
-          </div>
         </div>
         <div class="rounded-2xl overflow-hidden border border-neutral-200 aspect-[3/4]">
           <img src="Photo Gallery/img.The Romantic Bachata hold.JPG" alt="Bachata — hold" class="w-full h-full object-cover" loading="lazy">
@@ -291,24 +267,6 @@
           <img src="Photo Gallery/img.The Romantic Bachata back spins.JPG" alt="Bachata — back spins" class="w-full h-full object-cover" loading="lazy">
         </div>
       </div>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-6 mt-6">
-        <div class="flex flex-col rounded-2xl border border-neutral-200 bg-white p-8">
-          <h3 class="font-display text-xl font-semibold text-eyebrow mb-5">Customer Testimonial</h3>
-          <p class="text-sm text-neutral-700 italic mb-6"><span class="text-xl font-display text-eyebrow align-middle">&ldquo;</span> There's something really unique about Soulful Steps. They don't just do moves, you can really feel their emotions.<span class="text-xl font-display text-eyebrow align-middle">&rdquo;</span></p>
-          <p class="text-sm font-semibold text-[#341A27] mt-auto">DJ Alejo, Toronto DJ &amp; MC</p>
-        </div>
-        <div class="flex flex-col rounded-2xl border border-neutral-200 bg-white p-8">
-          <h3 class="font-display text-xl font-semibold text-eyebrow mb-5">Customer Testimonial</h3>
-          <p class="text-sm text-neutral-700 italic mb-6"><span class="text-xl font-display text-eyebrow align-middle">&ldquo;</span> Our guests still talk about your show months after our wedding. Everyone loved your performance. Thank you so much.<span class="text-xl font-display text-eyebrow align-middle">&rdquo;</span></p>
-          <p class="text-sm font-semibold text-[#341A27] mt-auto">Sanvi J., the Bride</p>
-        </div>
-        <div class="flex flex-col rounded-2xl border border-neutral-200 bg-white p-8">
-          <h3 class="font-display text-xl font-semibold text-eyebrow mb-5">Customer Testimonial</h3>
-          <p class="text-sm text-neutral-700 italic mb-6"><span class="text-xl font-display text-eyebrow align-middle">&ldquo;</span> You exceeded our expectations, your energy and elegance was incredible and your Bollywood was on point.<span class="text-xl font-display text-eyebrow align-middle">&rdquo;</span></p>
-          <p class="text-sm font-semibold text-[#341A27] mt-auto">Rohan G., A guest at the Jubilee</p>
-        </div>
     </div>
 
     <div class="text-center mt-10 sm:mt-14">
@@ -336,6 +294,85 @@
       <a href="privacy-policy.html" class="hover:text-neutral-900 justify-self-end">Privacy Policy</a>
     </div>
   </footer>
+
+  <script>
+    // Shared helpers for carousel dot indicators + keyboard access on prev/next buttons.
+    function wireCarouselDots(trackEl, dotsEl, slideSelector) {
+      if (!trackEl || !dotsEl) return;
+      const slides = Array.from(trackEl.querySelectorAll(slideSelector));
+      const dots = Array.from(dotsEl.querySelectorAll('.hl-dot'));
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          const target = slides[i];
+          if (target) target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        });
+      });
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = slides.indexOf(entry.target);
+            if (idx === -1) return;
+            dots.forEach((d, i) => {
+              d.classList.toggle('hl-dot-active', i === idx);
+              if (i === idx) { d.setAttribute('aria-current', 'true'); } else { d.removeAttribute('aria-current'); }
+            });
+          }
+        });
+      }, { root: trackEl, threshold: 0.6 });
+      slides.forEach((s) => observer.observe(s));
+    }
+    // Makes left/right arrow keys work no matter which element inside the carousel has focus.
+    function wireCarouselKeyboard(carouselEl, onLeft, onRight) {
+      if (!carouselEl) return;
+      carouselEl.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); onRight(); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); onLeft(); }
+      });
+    }
+
+    const pkgCarousel = document.getElementById('pkg-carousel');
+    const pkgTrack = document.getElementById('pkg-track');
+    const pkgPrev = document.getElementById('pkg-prev');
+    const pkgNext = document.getElementById('pkg-next');
+    const pkgDots = document.getElementById('pkg-dots');
+    if (pkgTrack) {
+      const pkgScrollAmount = () => pkgTrack.clientWidth * 0.9;
+      pkgPrev.addEventListener('click', () => pkgTrack.scrollBy({ left: -pkgScrollAmount(), behavior: 'smooth' }));
+      pkgNext.addEventListener('click', () => pkgTrack.scrollBy({ left: pkgScrollAmount(), behavior: 'smooth' }));
+      wireCarouselKeyboard(
+        pkgCarousel,
+        () => pkgTrack.scrollBy({ left: -pkgScrollAmount(), behavior: 'smooth' }),
+        () => pkgTrack.scrollBy({ left: pkgScrollAmount(), behavior: 'smooth' })
+      );
+      wireCarouselDots(pkgTrack, pkgDots, ':scope > .pkg-slide');
+
+      // Click-and-drag to scroll the cards left/right (mouse only; touch keeps native swipe).
+      let isDown = false, startX = 0, startScroll = 0, dragged = false;
+      pkgTrack.addEventListener('pointerdown', (e) => {
+        if (e.pointerType !== 'mouse') return;
+        isDown = true;
+        dragged = false;
+        startX = e.clientX;
+        startScroll = pkgTrack.scrollLeft;
+        pkgTrack.classList.add('dragging');
+      });
+      pkgTrack.addEventListener('pointermove', (e) => {
+        if (!isDown) return;
+        const walk = e.clientX - startX;
+        if (Math.abs(walk) > 3) dragged = true;
+        pkgTrack.scrollLeft = startScroll - walk;
+      });
+      const endDrag = () => {
+        if (!isDown) return;
+        isDown = false;
+        pkgTrack.classList.remove('dragging');
+      };
+      pkgTrack.addEventListener('pointerup', endDrag);
+      pkgTrack.addEventListener('pointerleave', endDrag);
+      // Swallow the click that fires at the end of a drag so it isn't read as a tap.
+      pkgTrack.addEventListener('click', (e) => { if (dragged) { e.preventDefault(); e.stopPropagation(); } }, true);
+    }
+  </script>
 
 </body>
 </html>
